@@ -102,14 +102,18 @@ for (let i=0; i < carYears.length; i++){
 /*let oldCars = inventory.filter(function(){ 
     return carYears.car_year < 2000;
 })
+console.log(oldCars.length);
+
+let oldCars = carYears;
+    for (carYears > 2000); {
+        return 1; 
+    }
 console.log(oldCars.length);*/
 
-let oldCars = inventory.car_year;
-    for (let i = 0; oldCars < 2000; i++) {
-        oldCars[i];
-        console.log(oldCars.length);
- }
 
+// using code found in help, not exactly what I would use, also unsure why it needs to show the list of years. Holding onto the code for future help. 
+const oldCars = inventory.filter(cars =>(cars.car_year < 2000)).map(car => `${car.car_year}`); 
+console.log(oldCars);
  
 
 // ==== Challenge 6 ====
