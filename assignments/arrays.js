@@ -72,56 +72,50 @@ console.log(lastCar.car_make, lastCar.car_model);
 
 // ==== Challenge 3 ====
 // The marketing team wants the car models listed alphabetically on the website. Sort all the car model names into alphabetical order and log the results in the console
-let carModels = inventory.sort(function(carA,carB) {
-    if (carA.car_model < carB.car_model) {
-        return -1;
-    }
-        return 1;
-});
-    for (let i=0; i < carModels.length; i++){
-console.log(carModels[i].car_model);
-    }
+let carModels = []
+for (let i = 0; i < inventory.length; i++){
+        let models = inventory[i].car_model;
+        carModels.push(models);
+}
+    console.log(carModels.sort());
+
 
 // ==== Challenge 4 ====
 // The accounting team needs all the years from every car on the lot. Create a new array from the dealer data containing only the car years and log the result in the console.
-let carYears = inventory.sort(function(carA,carB) {
-    if (carA.car_year < carB.car_year) {
-        return -1;
-    }
-        return 1;
-});
-for (let i=0; i < carYears.length; i++){
-    console.log(carYears[i].car_year);
-        }
+let carYears = []
+for (let i = 0; i < inventory.length; i++){
+    let years = inventory[i].car_year;
+    carYears.push(years);
+}
+    console.log(carYears.sort());
+
 
 // ==== Challenge 5 ====
 // The car lot manager needs to find out how many cars are older than the year 2000. Using the carYears array you just created, find out how many cars were made before the year 2000 by populating the array oldCars and logging it's length.
 
-//Not sure where to go from here, I understand I need to take all the years from carYears, get the length of how many are under 2000 and return it to the console log.  
-
-/*let oldCars = inventory.filter(function(){ 
-    return carYears.car_year < 2000;
-})
-console.log(oldCars.length);
-
-let oldCars = carYears;
-    for (carYears > 2000); {
-        return 1; 
+let oldCars = []
+for (let i = 0; i < inventory.length; i++){
+    let old = inventory[i].car_year;
+    if (old < 2000){
+    oldCars.push(old);
     }
-console.log(oldCars.length);*/
+}
+    console.log(oldCars.sort());
 
-
-// using code found in help, not exactly what I would use, also unsure why it needs to show the list of years. Holding onto the code for future help. 
-const oldCars = inventory.filter(cars =>(cars.car_year < 2000)).map(car => `${car.car_year}`); 
-console.log(oldCars);
+//const oldCars = inventory.filter(cars =>(cars.car_year < 2000)).map(car => `${car.car_year}`); 
+//console.log(oldCars);
  
 
 // ==== Challenge 6 ====
 // A buyer is interested in seeing only BMW and Audi cars within the inventory.  Return an array that only contains BMW and Audi cars.  Once you have populated the BMWAndAudi array, use JSON.stringify() to show the results of the array in the console.
-let BMWAndAudi = [];
-// Really unsure how to accomplish this with the lesson givin today, I need to take every array that has a make of BMW and Audi and list the year make and model. 
-console.log();
-
+    let BMWAndAudi = []
+    for (let i = 0; i < inventory.length; i++){
+        let bmwaudi = inventory[i];
+        if (bmwaudi.car_make === 'Audi' || bmwaudi.car_make === 'BMW') {
+            BMWAndAudi.push(bmwaudi);
+        }
+    }
+    console.log(JSON.stringify(BMWAndAudi));
 
 
 
